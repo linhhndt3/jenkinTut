@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                'docker build -t linhhut/jenkin-tut .'
-                'docker push linhhut/jenkin-tut'
+                sh 'docker build -t linhhut/jenkin-tut .'
+                sh 'docker push linhhut/jenkin-tut'
             }
         }
     }
