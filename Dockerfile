@@ -5,5 +5,6 @@ RUN mvn -f /home/centos/pom.xml clean install -DskipTests
 
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=/home/centos/target/*.jar
+RUN echo $JAR_FILE
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
