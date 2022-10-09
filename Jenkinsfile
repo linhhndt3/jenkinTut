@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                echo 'Hello world! with agent dockerfile' 
+                'docker build -t linhhut/jenkin-tut .'
+                'docker push linhhut/jenkin-tut'
             }
         }
     }
