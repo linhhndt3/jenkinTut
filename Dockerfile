@@ -1,9 +1,9 @@
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package -DskipTests
+COPY src /home/centos/src
+COPY pom.xml /home/centos
+RUN mvn -f /home/centos/pom.xml clean package -DskipTests
 
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=/home/app/target/*.jar
+ARG JAR_FILE=/home/centos/target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
