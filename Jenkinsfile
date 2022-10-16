@@ -1,13 +1,11 @@
 pipeline {
     agent {
-        docker {
             label "jenkins-agent"
-           }
     }
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
-    agent {
+
     stages {
         stage('SCM Checkout') {
             steps{
@@ -30,7 +28,7 @@ pipeline {
                 sh 'docker push linhhut/jenkin-tut:$BUILD_NUMBER'
             }
         }
-    }
+    
 }
 post {
         always {
