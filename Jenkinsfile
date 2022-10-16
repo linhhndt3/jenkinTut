@@ -1,9 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            label "jenkins-agent"
+           }
+    }
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
-    jenkins-agent {
+    agent {
     stages {
         stage('SCM Checkout') {
             steps{
