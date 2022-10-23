@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'slaveNode1dfd'
+        label 'slaveNode1'
     }
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
