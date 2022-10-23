@@ -1,10 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        label 'slaveNode1'
+    }
     environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
 
-    node('slaveNode1'){
+    stages {
         stage('SCM Checkout') {
             
             git 'https://github.com/linhhndt3/jenkinTut.git'
